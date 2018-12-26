@@ -10,6 +10,7 @@ npm-debug.log*
 
 # temp files
 models/schema-temp.js
+routes/wiki.js
 # Runtime data
 pids
 *.pid
