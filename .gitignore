@@ -3,7 +3,13 @@ logs
 *.log
 npm-debug.log*
 
+#.gitignore
+.gitignore
+#.vscode workspace settings
+.vscode
 
+# temp files
+models/schema-temp.js
 # Runtime data
 pids
 *.pid
