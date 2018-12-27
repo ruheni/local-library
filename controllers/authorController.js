@@ -10,7 +10,7 @@ exports.author_detail = (req, res) => {
     res.send(`NOT IMPLEMENTED: Author detail: ${req.params.id}`);
 };
 
-// Display Author create from on GET
+// Display Author create form on GET
 exports.author_create_get = (req, res) => {
     res.send('NOT IMPLEMENTED: Author create GET');
 };
