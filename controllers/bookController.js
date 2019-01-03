@@ -44,11 +44,13 @@ exports.book_list = (req, res) => {
 			if (err) {
 				return next(err);
 			}
+			console.log(list_books);
 			// Successful, so render
 			res.render('book_list', {
 				title: 'Book List',
 				book_list: list_books
 			});
+			// console.log(book_list);
 		});
 };
 
