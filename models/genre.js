@@ -3,18 +3,18 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var GenreSchema = new Schema({
-    name: {
-        type: String,
-        required: true,
-        minlength: 3,
-        maxlength: 100
-    }
+	name: {
+		type: String,
+		required: true,
+		minlength: 3,
+		maxlength: 100
+	}
 });
 
 // Virtual for genre's instance URL
 GenreSchema.virtual('url').get(function() {
-    return `/catalog/genre/${this._id}`;
+	return `/catalog/genre/${this._id}`;
 });
 
 // Export model
-module.exports = mongoose.model('Gerne', GenreSchema);
+module.exports = mongoose.model('Genre', GenreSchema);
