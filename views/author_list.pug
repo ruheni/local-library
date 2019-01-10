@@ -1,12 +1,12 @@
 extends layout 
 
 block content 
-    h1= title 
+	h1= title 
 
-    ul 
-        each author in author_list 
-            li 
-				a(href=author.url) #{author.name}
+	ul 
+		each author in author_list 
+			li 
+				a(href=author.url) #{author.family_name}, #{author.first_name}
 				|	(#{author.date_of_birth} - #{author.date_of_death})
 
 		else 

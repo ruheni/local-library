@@ -6,8 +6,9 @@ exports.author_list = (req, res, next) => {
 		.sort([['family_name', 'ascending']])
 		.exec((err, list_authors) => {
 			if (err) {
-				next(err);
+				return next(err);
 			}
+			// console.log(list_authors);
 			// Successful, therefore, render
 			res.render('author_list', {
 				title: 'Author List',
