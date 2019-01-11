@@ -15,6 +15,7 @@ routes/catalog-temp.js
 controllers/temp.js
 temp/*
 views/temp.pug
+app-temp.js
 
 # Runtime data
 pids
