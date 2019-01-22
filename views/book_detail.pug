@@ -4,7 +4,7 @@ block content
 	h1 #{title}: #{book.title}
 
 	p #[strong Author:]
-		a(href=book.author.url) #{book.author.name}
+		a(href=book.author.url) #{book.author.family_name}, #{book.author.first_name}
 	p #[strong Summary:] #{book.summary}
 	p #[strong ISBN: ] #{book.isbn}
 	p #[strong Genre:]&nbsp;
