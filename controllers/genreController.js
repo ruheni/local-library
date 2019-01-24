@@ -27,15 +27,15 @@ exports.genre_list = (req, res, next) => {
 exports.genre_detail = (req, res, next) => {
 	async.parallel(
 		{
-			genre: function(callback) {
+			genre: callback => {
 				Genre.findById(req.params.id).exec(callback);
 			},
 
-			genre_books: function(callback) {
+			genre_books: callback => {
 				Book.find({ genre: req.params.id }).exec(callback);
 			}
 		},
-		function(err, results) {
+		(err, results) => {
 			if (err) {
 				return next(err);
 			}
@@ -93,10 +93,7 @@ exports.genre_create_post = [
 		} else {
 			// Data from form is valid.
 			// Check if Genre with same name already exists.
-			Genre.findOne({ name: req.body.name }).exec(function(
-				err,
-				found_genre
-			) {
+			Genre.findOne({ name: req.body.name }).exec((err, found_genre) => {
 				if (err) {
 					return next(err);
 				}
@@ -105,7 +102,7 @@ exports.genre_create_post = [
 					// Genre exists, redirect to its detail page.
 					res.redirect(found_genre.url);
 				} else {
-					genre.save(function(err) {
+					genre.save(err => {
 						if (err) {
 							return next(err);
 						}
