@@ -66,51 +66,37 @@ exports.author_create_get = (req, res) => {
 
 // Handle Author create on POST
 exports.author_create_post = [
-	// Validate fields
+	// Validate fields.
 	body('first_name')
 		.isLength({ min: 1 })
 		.trim()
-		.withMessage('First name must be specified')
+		.withMessage('First name must be specified.')
 		.isAlphanumeric()
-		.withMessage('First name has non-alphanumeric characters'),
-
+		.withMessage('First name has non-alphanumeric characters.'),
 	body('family_name')
 		.isLength({ min: 1 })
 		.trim()
-		.withMessage('Family name must be specified')
+		.withMessage('Family name must be specified.')
 		.isAlphanumeric()
-		.withMessage('First name has non-alphanumeric characters'),
-
+		.withMessage('Family name has non-alphanumeric characters.'),
 	body('date_of_birth', 'Invalid date of birth')
-		.optional({
-			checkFalsy: true
-		})
+		.optional({ checkFalsy: true })
 		.isISO8601(),
-
 	body('date_of_death', 'Invalid date of death')
-		.optional({
-			checkFalsy: true
-		})
+		.optional({ checkFalsy: true })
 		.isISO8601(),
 
-	// sanitize data
+	// Sanitize fields.
 	sanitizeBody('first_name')
 		.trim()
 		.escape(),
-
 	sanitizeBody('family_name')
 		.trim()
 		.escape(),
+	sanitizeBody('date_of_birth').toDate(),
+	sanitizeBody('date_of_death').toDate(),
 
-	sanitizeBody('date_of_birth')
-		
-		.toDate(),
-
-	sanitizeBody('date_of_death')
-		
-		.toDate(),
-
-	// Process request after validation and sanitization
+	// Process request after validation and sanitization.
 	(req, res, next) => {
 		// Extract the validation errors from a request.
 		const errors = validationResult(req);
