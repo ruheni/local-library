@@ -16,7 +16,7 @@
 		"http-errors": "~1.6.2",
 		"moment": "^2.23.0",
 		"mongoose": "^5.4.0",
-		"morgan": "~1.9.0",
+		"morgan": "~1.10.1",
 		"pug": "2.0.0-beta11",
 		"serve-favicon": "^2.5.0"
 	},
